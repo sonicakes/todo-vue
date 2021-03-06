@@ -1,18 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Todo app "/>
+    <Header/>
+    <Items :items="items"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Items from './components/Items.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Header,
+    Items
+  },
+   created() {
+    this.items = [
+      {
+        id: 1,
+        text: "Vet Appointment",
+        checked: false
+      },
+      {
+        id: 2,
+        text: "Hair Appointment",
+        checked: true
+
+      },
+      {
+        id: 3,
+        text: "Study Appointment",
+        checked: false
+
+      },
+    ];
+  },
 }
 </script>
 
