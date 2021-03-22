@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Items :items="items"/>
+    <Items :items="items" @item-checked="childChecked"/>
     <Buttons />
   </div>
 </template>
@@ -17,6 +17,13 @@ export default {
     Header,
     Items,
     Buttons
+  },
+  methods: {
+        childChecked(id) {
+      this.items = this.items.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item
+      );
+    },
   },
    created() {
     this.items = [

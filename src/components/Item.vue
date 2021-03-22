@@ -16,8 +16,7 @@ export default {
   methods: {
       isChecked() {
       this.item.checked = !this.item.checked;
-        console.log(item.checked);
-        this.$emit('checked', item.checked);
+        this.$emit('checked', this.item.checked);
       }
   }
 }
