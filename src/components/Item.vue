@@ -1,8 +1,8 @@
 <template>
   <div>
-      <div :class="[item.checked ? 'checked' : '', 'form-group']">
+      <div :class="{checked: item.checked}" class="form-group">
       <label>{{item.text}}</label>
-    <input :id="item.id" type="checkbox" @change="isChecked(item.id)">
+    <input :id="item.id" type="checkbox" @change="isChecked()">
   </div>
   </div>
 </template>
@@ -14,8 +14,10 @@ export default {
       item: Object
   },
   methods: {
-      isChecked(id) {
-console.log(id, 'the state of checkbox is changed');
+      isChecked() {
+      this.item.checked = !this.item.checked;
+        console.log(item.checked);
+        this.$emit('checked', item.checked);
       }
   }
 }

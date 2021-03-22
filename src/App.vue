@@ -2,19 +2,21 @@
   <div id="app">
     <Header/>
     <Items :items="items"/>
+    <Buttons />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Items from './components/Items.vue'
-
+import Buttons from './components/Buttons.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Items
+    Items,
+    Buttons
   },
    created() {
     this.items = [
